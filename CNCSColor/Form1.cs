@@ -18,9 +18,16 @@ namespace CNCSColor
             this.panelSelecting1.Left = this.panelDisplay1.Right;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void panelDisplay1_RGBChangedEvent()
         {
-            Console.WriteLine(panelDisplay1.RGB);
+            if (panelDisplay1.RGB != "0,0,0")
+            {
+                panelSelecting1.ShowRGB = panelDisplay1.RGB;
+            }
+            Console.WriteLine(panelDisplay1.RGB+"/" + panelSelecting1.ShowRGB);
         }
     }
 }

@@ -55,6 +55,12 @@
     <Compile Include="Controls\ButtonM.Designer.cs">
       <DependentUpon>ButtonM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundButton.Designer.cs">
+      <DependentUpon>RoundButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,7 @@
     <Compile Include="Controls\ShadowForm.Designer.cs">
       <DependentUpon>ShadowForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tool\AuxiliaryAPI.cs" />
     <Compile Include="Tool\ExcelDataAPI.cs" />
     <Compile Include="Tool\FormStyleAPI.cs" />
     <EmbeddedResource Include="Controls\ButtonM.resx">
@@ -159,6 +166,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Display2520x1444.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckMarkBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckMarkWhite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -63,6 +63,26 @@ namespace CNCSColor.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap CheckMarkBlack {
+            get {
+                object obj = ResourceManager.GetObject("CheckMarkBlack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap CheckMarkWhite {
+            get {
+                object obj = ResourceManager.GetObject("CheckMarkWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap CNCSColor28 {
             get {
                 object obj = ResourceManager.GetObject("CNCSColor28", resourceCulture);

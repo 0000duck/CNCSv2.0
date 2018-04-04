@@ -52,6 +52,7 @@
             this.panelSelecting1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelSelecting1.Location = new System.Drawing.Point(1641, 92);
             this.panelSelecting1.Name = "panelSelecting1";
+            this.panelSelecting1.ShowRGB = "48,35,42";
             this.panelSelecting1.Size = new System.Drawing.Size(279, 988);
             this.panelSelecting1.TabIndex = 2;
             // 

@@ -288,12 +288,18 @@ namespace CNCSColor.Controls
             g.SmoothingMode = SmoothingMode.AntiAlias;  //使绘图质量最高，即消除锯齿
             g.InterpolationMode = InterpolationMode.HighQualityBicubic;
             g.CompositingQuality = CompositingQuality.HighQuality;
-            LinearGradientBrush linGrBrush = new LinearGradientBrush(
+            LinearGradientBrush linGrBrushTop = new LinearGradientBrush(
                    new Point(navigationBar.Width, 0),
                    new Point(navigationBar.Width, ShadowWidth),
                    titleBar.BackColor,
                    Color.FromArgb(100, 20, 20, 20));
-            g.FillRectangle(linGrBrush, 0, 0, navigationBar.Width, 5);
+            g.FillRectangle(linGrBrushTop, 0, 0, navigationBar.Width, 5);
+            //LinearGradientBrush linGrBrushBottom = new LinearGradientBrush(
+            //       new Point(navigationBar.Width, 0),
+            //       new Point(navigationBar.Width, ShadowWidth),
+            //       Color.FromArgb(200, 200, 200, 200),
+            //       Color.FromArgb(255, 50, 50, 50));
+            //g.FillRectangle(linGrBrushBottom, 0, navigationBar.Height-5, navigationBar.Width, 5);
         }
 
         private int navigationFlag = 0;

@@ -24,13 +24,11 @@ namespace CNCSColor.Tool
             try
             {
                 ExcelDataSet = GetExcelData(dir.FullName + @"\DataPart.xlsx");
-                MessageBox.Show("Obtain local Excel!");
                 InitRGB();
                 InitHLC();
                 InitPage();
                 InitRGB2HLC();
                 InitRGB2xyz();
-                MessageBox.Show("Init success!");
             }
             catch (Exception)
             {

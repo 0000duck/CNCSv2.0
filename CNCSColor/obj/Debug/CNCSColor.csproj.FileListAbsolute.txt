@@ -1,7 +1,6 @@
 D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\bin\Debug\CNCSColor.exe.config
 D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\bin\Debug\CNCSColor.exe
 D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\bin\Debug\CNCSColor.pdb
-D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\obj\Debug\CNCSColor.csprojResolveAssemblyReference.cache
 D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\obj\Debug\CNCSColor.Form1.resources
 D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\obj\Debug\CNCSColor.Properties.Resources.resources
 D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\obj\Debug\CNCSColor.csproj.GenerateResource.Cache
