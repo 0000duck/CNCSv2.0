@@ -213,7 +213,16 @@ namespace CNCSColor.Controls
                 ButtonClick(sender, e);
             }
         }
-
+        /// <summary>
+        /// 鼠标单击事件
+        /// </summary>
+        public new event MouseEventHandler MouseClick;
+        private void label_MouseClick(object sender, MouseEventArgs e)
+        {
+            Label label = (Label)sender;
+            if (MouseClick != null)
+                MouseClick(label.Parent, e);
+        }
         private void label_MouseMove(object sender, MouseEventArgs e)
         {
             if (backColorMove != Color.Transparent && !Selected)

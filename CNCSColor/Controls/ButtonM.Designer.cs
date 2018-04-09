@@ -41,6 +41,7 @@
             this.label.TabIndex = 0;
             this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label.Click += new System.EventHandler(this.label_Click);
+            this.label.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label_MouseClick);
             this.label.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             this.label.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label_MouseMove);
             // 

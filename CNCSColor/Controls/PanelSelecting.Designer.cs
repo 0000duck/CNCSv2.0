@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.panelShow = new System.Windows.Forms.Panel();
+            this.CNCSNum = new System.Windows.Forms.Label();
             this.ShowPanel = new System.Windows.Forms.Panel();
             this.panelSelected = new System.Windows.Forms.Panel();
+            this.panelList = new System.Windows.Forms.FlowLayoutPanel();
             this.panelButton = new System.Windows.Forms.Panel();
+            this.Btn2 = new System.Windows.Forms.Button();
+            this.Btn1 = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
             this.checkMarkBtn = new CNCSColor.Controls.ButtonM();
             this.adjacentHBtn3 = new CNCSColor.Controls.RoundButton();
@@ -43,9 +47,10 @@
             this.adjacentLBtn3 = new CNCSColor.Controls.RoundButton();
             this.adjacentLBtn2 = new CNCSColor.Controls.RoundButton();
             this.adjacentLBtn1 = new CNCSColor.Controls.RoundButton();
-            this.CNCSNum = new System.Windows.Forms.Label();
             this.panelShow.SuspendLayout();
             this.ShowPanel.SuspendLayout();
+            this.panelSelected.SuspendLayout();
+            this.panelButton.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +73,17 @@
             this.panelShow.Size = new System.Drawing.Size(264, 344);
             this.panelShow.TabIndex = 0;
             // 
+            // CNCSNum
+            // 
+            this.CNCSNum.AutoSize = true;
+            this.CNCSNum.Font = new System.Drawing.Font("方正舒体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CNCSNum.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.CNCSNum.Location = new System.Drawing.Point(89, 64);
+            this.CNCSNum.Name = "CNCSNum";
+            this.CNCSNum.Size = new System.Drawing.Size(82, 17);
+            this.CNCSNum.TabIndex = 0;
+            this.CNCSNum.Text = "000 27 00";
+            // 
             // ShowPanel
             // 
             this.ShowPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -78,24 +94,60 @@
             this.ShowPanel.Name = "ShowPanel";
             this.ShowPanel.Size = new System.Drawing.Size(225, 215);
             this.ShowPanel.TabIndex = 11;
+            this.ShowPanel.BackColorChanged += new System.EventHandler(this.ShowPanel_BackColorChanged);
             this.ShowPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ShowPanel_Paint);
             // 
             // panelSelected
             // 
-            this.panelSelected.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSelected.Controls.Add(this.panelList);
             this.panelSelected.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSelected.Location = new System.Drawing.Point(0, 344);
             this.panelSelected.Name = "panelSelected";
-            this.panelSelected.Size = new System.Drawing.Size(264, 547);
+            this.panelSelected.Size = new System.Drawing.Size(264, 535);
             this.panelSelected.TabIndex = 1;
+            // 
+            // panelList
+            // 
+            this.panelList.AutoScroll = true;
+            this.panelList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelList.Location = new System.Drawing.Point(17, 16);
+            this.panelList.Name = "panelList";
+            this.panelList.Padding = new System.Windows.Forms.Padding(15, 5, 15, 0);
+            this.panelList.Size = new System.Drawing.Size(225, 507);
+            this.panelList.TabIndex = 1;
+            this.panelList.Paint += new System.Windows.Forms.PaintEventHandler(this.panelList_Paint);
             // 
             // panelButton
             // 
+            this.panelButton.Controls.Add(this.Btn2);
+            this.panelButton.Controls.Add(this.Btn1);
             this.panelButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelButton.Location = new System.Drawing.Point(92, 891);
+            this.panelButton.Location = new System.Drawing.Point(94, 879);
             this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(172, 97);
+            this.panelButton.Size = new System.Drawing.Size(170, 109);
             this.panelButton.TabIndex = 2;
+            // 
+            // Btn2
+            // 
+            this.Btn2.Font = new System.Drawing.Font("幼圆", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn2.Location = new System.Drawing.Point(78, 58);
+            this.Btn2.Name = "Btn2";
+            this.Btn2.Size = new System.Drawing.Size(75, 40);
+            this.Btn2.TabIndex = 1;
+            this.Btn2.Text = "储存";
+            this.Btn2.UseVisualStyleBackColor = true;
+            this.Btn2.Click += new System.EventHandler(this.Btn2_Click);
+            // 
+            // Btn1
+            // 
+            this.Btn1.Font = new System.Drawing.Font("幼圆", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn1.Location = new System.Drawing.Point(78, 6);
+            this.Btn1.Name = "Btn1";
+            this.Btn1.Size = new System.Drawing.Size(75, 40);
+            this.Btn1.TabIndex = 0;
+            this.Btn1.Text = "搭配";
+            this.Btn1.UseVisualStyleBackColor = true;
+            this.Btn1.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // panelMain
             // 
@@ -118,7 +170,7 @@
             this.checkMarkBtn.ImageLeave = null;
             this.checkMarkBtn.ImageM = global::CNCSColor.Properties.Resources.CheckMarkWhite;
             this.checkMarkBtn.ImageMove = null;
-            this.checkMarkBtn.Location = new System.Drawing.Point(225, 178);
+            this.checkMarkBtn.Location = new System.Drawing.Point(182, 178);
             this.checkMarkBtn.Name = "checkMarkBtn";
             this.checkMarkBtn.Selected = false;
             this.checkMarkBtn.Size = new System.Drawing.Size(43, 37);
@@ -232,17 +284,6 @@
             this.adjacentLBtn1.MouseEnter += new System.EventHandler(this.AdjacentBtn_MouseEnter);
             this.adjacentLBtn1.MouseLeave += new System.EventHandler(this.AdjacentBtn_MouseLeave);
             // 
-            // CNCSNum
-            // 
-            this.CNCSNum.AutoSize = true;
-            this.CNCSNum.Font = new System.Drawing.Font("方正舒体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.CNCSNum.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.CNCSNum.Location = new System.Drawing.Point(89, 64);
-            this.CNCSNum.Name = "CNCSNum";
-            this.CNCSNum.Size = new System.Drawing.Size(82, 17);
-            this.CNCSNum.TabIndex = 0;
-            this.CNCSNum.Text = "000 27 00";
-            // 
             // PanelSelecting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -256,6 +297,8 @@
             this.panelShow.ResumeLayout(false);
             this.panelShow.PerformLayout();
             this.ShowPanel.ResumeLayout(false);
+            this.panelSelected.ResumeLayout(false);
+            this.panelButton.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -279,5 +322,8 @@
         private System.Windows.Forms.Panel ShowPanel;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Label CNCSNum;
+        private System.Windows.Forms.FlowLayoutPanel panelList;
+        private System.Windows.Forms.Button Btn2;
+        private System.Windows.Forms.Button Btn1;
     }
 }

@@ -32,6 +32,7 @@ namespace CNCSColor.Tool
             }
             catch (Exception)
             {
+
                 MessageBox.Show("Failed obtain local Excel!");
                 throw;
             }

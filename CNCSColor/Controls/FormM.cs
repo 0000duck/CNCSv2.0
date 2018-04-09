@@ -302,14 +302,16 @@ namespace CNCSColor.Controls
             //g.FillRectangle(linGrBrushBottom, 0, navigationBar.Height-5, navigationBar.Width, 5);
         }
 
-        private int navigationFlag = 0;
-        public event EventHandler OnlyOne;
-
+        public int navigationFlag = 0;
+        private event EventHandler OnlyOne;
+        public event EventHandler NavigationClick;
         private void navigation4_ButtonClick(object sender, EventArgs e)
         {
             navigationFlag = 4;
             if (OnlyOne != null)
                 OnlyOne(sender, e);
+            if (NavigationClick != null)
+                NavigationClick(sender, e);
         }
 
         private void navigation3_ButtonClick(object sender, EventArgs e)
@@ -317,6 +319,8 @@ namespace CNCSColor.Controls
             navigationFlag = 3;
             if (OnlyOne != null)
                 OnlyOne(sender, e);
+            if (NavigationClick != null)
+                NavigationClick(sender, e);
         }
 
         private void navigation2_ButtonClick(object sender, EventArgs e)
@@ -324,6 +328,8 @@ namespace CNCSColor.Controls
             navigationFlag = 2;
             if (OnlyOne != null)
                 OnlyOne(sender, e);
+            if (NavigationClick != null)
+                NavigationClick(sender, e);
         }
 
         private void navigation1_ButtonClick(object sender, EventArgs e)
@@ -331,6 +337,8 @@ namespace CNCSColor.Controls
             navigationFlag = 1;
             if (OnlyOne != null)
                 OnlyOne(sender, e);
+            if (NavigationClick != null)
+                NavigationClick(sender, e);
         }
 
         private void navigation_OnlyOne(object sender, EventArgs e)
