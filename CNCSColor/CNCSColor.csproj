@@ -55,6 +55,12 @@
     <Compile Include="Controls\ButtonM.Designer.cs">
       <DependentUpon>ButtonM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PanelMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PanelMenu.Designer.cs">
+      <DependentUpon>PanelMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     <Compile Include="Tool\FormStyleAPI.cs" />
     <EmbeddedResource Include="Controls\ButtonM.resx">
       <DependentUpon>ButtonM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PanelMenu.resx">
+      <DependentUpon>PanelMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -172,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CheckMarkWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangle_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangle_left.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

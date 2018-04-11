@@ -15,7 +15,7 @@ namespace CNCSColor.Controls
     {
         public PanelSelecting()
         {
-            this.ShowRGBChangedEvent += new RGBChangedEventHandler(this.panelShow_ShowRGBChangedEvent);
+            this.ShowRGBChangedEvent += new ValueChangedEventHandler(this.panelShow_ShowRGBChangedEvent);
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true); //支持背景透明
             this.SetStyle(ControlStyles.UserPaint, true);
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
@@ -63,7 +63,7 @@ namespace CNCSColor.Controls
         #endregion
 
         #region panelShow
-        public event RGBChangedEventHandler ShowRGBChangedEvent;
+        public event ValueChangedEventHandler ShowRGBChangedEvent;
         /// <summary>
         /// 选中的色块颜色
         /// </summary>
@@ -131,6 +131,7 @@ namespace CNCSColor.Controls
         }
         private void SetNeiborColor()
         {
+            if (CNCSNum.Text == "0,0,0"|| CNCSNum.Text == "") return;
             double[,] neiborColor = Tool.AuxiliaryAPI.GetNearColor(CNCSNum.Text,9);
             for (int i = 0; i < 9; i++)
             {
@@ -186,15 +187,22 @@ namespace CNCSColor.Controls
                 ButtonM btnM = new ButtonM();
                 btnM.BackColor = ShowPanel.BackColor;
                 btnM.TextM = CNCSNum.Text;
-                string[] HLC = btnM.TextM.Split(' ');
-                if (Convert.ToInt16(HLC[1])>80)
+                try
                 {
-                    btnM.TextColor = Color.Black;
+                    string[] HLC = btnM.TextM.Split(' ');
+                    if (Convert.ToInt16(HLC[1]) > 80)
+                    {
+                        btnM.TextColor = Color.Black;
+                    }
+                    else
+                    {
+                        btnM.TextColor = Color.White;
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    btnM.TextColor = Color.White;
                 }
+                
                 btnM.Size =new Size(panelList.Width-40,40);
                 btnM.MouseClick += new MouseEventHandler(ListBtnMRemove_MouseClick);
                 panelList.Controls.Add(btnM);
@@ -209,6 +217,7 @@ namespace CNCSColor.Controls
             if (e.Button == MouseButtons.Right)
             {
                 panelList.Controls.Remove((ButtonM)sender);
+                ((ButtonM)sender).Dispose();
             }
         }
 
@@ -267,6 +276,17 @@ namespace CNCSColor.Controls
         #endregion
 
         #region panelSelected
+
+        private List<string> selectedTexts = new List<string>();
+        [Description("选中的cncsnum字符串列表")]
+        public List<string> SelectedTexts
+        {
+            get { return selectedTexts; }
+            set
+            {
+                 selectedTexts = value;
+            }
+        }
         private void panelList_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -343,6 +363,19 @@ namespace CNCSColor.Controls
         public event EventHandler Button2Click;
         private void Btn1_Click(object sender, EventArgs e)
         {
+            if (selectedTexts == null)
+                selectedTexts = new List<string>();
+            if(panelList.Controls.Count>0)
+                selectedTexts.Clear();
+            else
+            {
+                MessageBox.Show("列表中不存在已选颜色，无法搭配！");
+                return;
+            }
+            foreach (ButtonM item in panelList.Controls)
+            {
+                selectedTexts.Add(item.TextM);
+            }
             if (Button1Click != null)
                 Button1Click(sender,e);
         }

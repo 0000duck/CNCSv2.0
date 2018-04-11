@@ -108,7 +108,6 @@ namespace CNCSColor.Tool
         {
             for (int i = 1; i < 3501; i++)
             {
-
                 int r = Convert.ToInt16(ExcelDataSet.Tables[0].Rows[i][1]);
                 int g = Convert.ToInt16(ExcelDataSet.Tables[0].Rows[i][2]);
                 int b = Convert.ToInt16(ExcelDataSet.Tables[0].Rows[i][3]);

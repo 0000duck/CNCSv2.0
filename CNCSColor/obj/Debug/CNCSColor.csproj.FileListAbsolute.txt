@@ -11,3 +11,5 @@ D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\obj\Debug\CNCSColor.
 D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\obj\Debug\CNCSColor.Controls.PanelDisplay.resources
 D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\obj\Debug\CNCSColor.Controls.PanelSelecting.resources
 D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\obj\Debug\CNCSColor.Controls.ShadowForm.resources
+D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\obj\Debug\CNCSColor.csprojResolveAssemblyReference.cache
+D:\Develop_software\VS_pro2015\Workspace\CNCSv2.0\CNCSColor\obj\Debug\CNCSColor.Controls.PanelMenu.resources

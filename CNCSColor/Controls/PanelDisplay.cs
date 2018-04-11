@@ -11,10 +11,9 @@ using System.Drawing.Drawing2D;
 
 namespace CNCSColor.Controls
 {
-    public delegate void RGBChangedEventHandler();
+    public delegate void ValueChangedEventHandler();
     public partial class PanelDisplay : UserControl
     {
-
         private Rectangle PointerRect;
         private double deltaX, deltaY;
         private Bitmap bmp;
@@ -22,7 +21,7 @@ namespace CNCSColor.Controls
         /// <summary>
         /// 变换了选择块事件
         /// </summary>
-        public event RGBChangedEventHandler RGBChangedEvent;
+        public event ValueChangedEventHandler RGBChangedEvent;
 
         /// <summary>
         /// 选中色块的RGB
@@ -53,6 +52,7 @@ namespace CNCSColor.Controls
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             this.SetStyle(ControlStyles.DoubleBuffer, true);
             InitializeComponent();
+            bmp = new Bitmap(CNCSColor.Properties.Resources.Display2520x1444, new Size(1638,988));
             deltaX = this.Width / 63;
             deltaY = this.Height / 76;
         }
@@ -156,13 +156,26 @@ namespace CNCSColor.Controls
             //Console.WriteLine(deltaX+","+deltaY+"/"+this.Size+"/"+(double)this.Height/76);
             int minusX = (int)(e.Location.X % deltaX);
             int minuxY = (int)(e.Location.Y % deltaY);
-            RGB = getPixel(e.Location.X, e.Location.Y);
+            //RGB = getPixel(e.Location.X, e.Location.Y);
+            RGB = getColor(e.Location.X, e.Location.Y);
             this.PointerRect.Location = new Point(e.Location.X - minusX, e.Location.Y - minuxY);
             this.Invalidate();
         }
 
         /// <summary>
-        /// 获取（x，y）像素值
+        /// 获取1638x988图像（x，y）坐标像素值
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        private string getColor(float x,float y)
+        {
+            Color c = bmp.GetPixel((int)x, (int)y);
+            return c.R + "," + c.G + "," + c.B;
+        }
+
+        /// <summary>
+        /// 获取（x，y）像素值 该方法浪费内存资源，打入冷宫
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
@@ -181,8 +194,6 @@ namespace CNCSColor.Controls
             }
         }
 
-
-    
 
     }
 }
